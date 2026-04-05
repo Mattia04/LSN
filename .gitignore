@@ -1,0 +1,8 @@
+JUPYTER_NOTEBOOK/
+
+*.DS_Store
+
+*.o
+*.exe
+
+config_*.xyz
