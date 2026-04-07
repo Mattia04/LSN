@@ -15,7 +15,6 @@ _/    _/  _/_/_/  _/_/_/_/ email: Davide.Galli@unimi.it
 
 using namespace std;
 
-ofstream f_test("test.dat");
 double get_random_circle(Random &rnd)
 {
     // https://mathworld.wolfram.com/CirclePointPicking.html
@@ -26,10 +25,6 @@ double get_random_circle(Random &rnd)
         x2 = rnd.Rannyu(-1, 1);
     } while (x1 * x1 + x2 * x2 > 1);
 
-    f_test << x1 / sqrt(x1 * x1 + x2 * x2) << "\n";
-
-    // return 2 * x1 * x2 / (x1 * x1 + x2 * x2);
-    // return (x1 * x1 - x2 * x2) / (x1 * x1 + x2 * x2);
     return x1 / sqrt(x1 * x1 + x2 * x2);
 }
 
@@ -104,7 +99,6 @@ int main(int argc, char *argv[])
     }
 
     f_pi.close();
-    f_test.close();
 
     rnd.SaveSeed();
     return 0;
