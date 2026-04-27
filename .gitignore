@@ -6,3 +6,8 @@ JUPYTER_NOTEBOOK/
 *.exe
 
 config_*.xyz
+
+**/RESULTS/magnetization_T[0-9].[0-9][0-9]_H0.00_*.dat
+**/RESULTS/specific_heat_T[0-9].[0-9][0-9]_H0.02_*.dat
+**/RESULTS/susceptibility_T[0-9].[0-9][0-9]_H0.02_*.dat
+**/RESULTS/total_energy_T[0-9].[0-9][0-9]_H0.02_*.dat
