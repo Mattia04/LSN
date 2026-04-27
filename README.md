@@ -29,10 +29,10 @@ Below is a brief overview of the topics addressed in each assignment:
 - Exercises 1: Monte Carlo methods and data blocking.
 - Exercises 2: Importance sampling and random walk.
 - Exercises 3: Stochastic integration and vanilla option pricing.
-- Exercises 4: Symplectic ODE solvers and molecular dynamics.
+- Exercises 4: Energy-conserving ODE solvers and molecular dynamics.
 - Exercises 5 (optional): Hydrogen wavefunction simulation.
-- Exercises 6:
-- Exercises 7:
+- Exercises 6: Ising Model
+- Exercises 7: radial distribution function and tail correction for cutoff.
 - Exercises 8:
 - Exercises 9:
 - Exercises 10:
