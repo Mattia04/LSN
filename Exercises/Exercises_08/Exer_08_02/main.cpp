@@ -128,10 +128,7 @@ int main(int argc, char *argv[])
                  << " dE=" << (E_c - E_p) << " T=" << T << " -> T * dE=" << (E_c - E_p) / T << endl;
         }
 
-        const double prob = WF_p.get_sigma() / WF_c.get_sigma() * exp(-(E_c - E_p) / T);
-        // the factor WF_c.get_sigma() / WF_p.get_sigma() is needed to take into account
-        //      the normalization factor of the wavefunction, which is proportional to 1 /sigma
-
+        const double prob = exp(-(E_c - E_p) / T);
         const bool cond = rnd.Rannyu() < min(1., prob);
 
         if (cond)
