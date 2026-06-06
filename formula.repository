@@ -1,0 +1,4 @@
+\_form#0=155x14:\[j = \mathrm{population size} \cdot \mathrm{floor}(r ^ p)\]
+\_form#1=8x6:$r$
+\_form#2=8x9:$p$
+\_form#3=169x16:\[L_1 = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
