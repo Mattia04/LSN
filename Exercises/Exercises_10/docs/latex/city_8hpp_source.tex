@@ -1,0 +1,56 @@
+\doxysection{city.\+hpp}
+\hypertarget{city_8hpp_source}{}\label{city_8hpp_source}\index{include/city.hpp@{include/city.hpp}}
+\doxymbox{\hyperlink{city_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{position_8hpp}{position.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{random_8h}{random.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_city_a1b2f2cda44178085f0c2b5beb5dba1a1}{City}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ s\_next\_uid;\ \textcolor{comment}{//\ for\ uid\ generator}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_position}{Position}}\ m\_pos;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ of\ the\ city}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ UID;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ uid\ of\ the\ city}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{class_city_a1b2f2cda44178085f0c2b5beb5dba1a1}{City}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_position}{Position}}\ \&pos)\ :\ m\_pos(pos),\ UID(s\_next\_uid++)\ \{\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_city_a5ef0f22ba4368b617cf56aeecaf237c4}{get\_UID}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ UID;\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ \doxymbox{\hyperlink{class_position}{Position}}\ \doxymbox{\hyperlink{class_city_a46b6ebd34ca44b208e974bb93fb1d924}{get\_pos}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_pos;\ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_city_a533b6278a29bdf0d5a3d2e94205d4c02}{get\_x}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_pos.get\_x();\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_city_ad609f8b06988452c8b51c036ff421f4e}{get\_y}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_pos.get\_y();\ \}}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }Cities}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<City>\ m\_cities;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ of\ cities}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ m\_possible\_UIDs;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vector\ of\ cities\ uids}}
+\DoxyCodeLine{00062\ \ \ \ \ std::unordered\_map<unsigned\ int,\ unsigned\ int>\ m\_uid\_to\_index;\ \textcolor{comment}{//\ to\ optimize\ data\ retrival}}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<std::vector<double>>\ m\_distance\_matrix;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ optimize\ distance\ calculations}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ Cities()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ internal\ constructor}}
+\DoxyCodeLine{00068\ \ \ \ \ Cities(\textcolor{keyword}{const}\ std::vector<City>\ \&cities,\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&UIDs);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{static}\ Cities\ \doxymbox{\hyperlink{class_cities_a382706e2935d6d89e74926d3d6892b5b}{Initialize\_Cities\_Circle}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{double}\ radius,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{static}\ Cities\ \doxymbox{\hyperlink{class_cities_a0e9d61bec0631f96eec703f248f71958}{Initialize\_Cities\_Square}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{double}\ length,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ Cities\ \doxymbox{\hyperlink{class_cities_aadd7a99e422179a6e477190540ffa9d0}{Initialize\_From\_File}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&\doxymbox{\hyperlink{class_cities_a999bb543b97af3674707c93b75d0c63e}{get\_possible\_UIDs}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_possible\_UIDs;\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_city}{City}}\ \&\doxymbox{\hyperlink{class_cities_a9d1e38e950d006532c6744c1f5cdc5cb}{get\_city}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\doxymbox{\hyperlink{class_cities_a144a57e851d8364efde0d082f0a9357e}{get\_distance}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&uid1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&uid2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_cities_a2a8c8d6575b95121bc54b42b02c22afa}{save\_positions}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00114\ \};}
+
+\end{DoxyCode}

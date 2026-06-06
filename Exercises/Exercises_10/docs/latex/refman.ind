@@ -1,0 +1,127 @@
+\begin{theindex}
+
+  \item {average\_L1}
+    \subitem {Genetic}, \hyperpage{16}
+
+  \indexspace
+
+  \item {best\_L1}
+    \subitem {Genetic}, \hyperpage{16}
+  \item {best\_L1\_index}
+    \subitem {Genetic}, \hyperpage{16}
+
+  \indexspace
+
+  \item {calculate\_fitness\_first}
+    \subitem {Genetic}, \hyperpage{16}
+  \item {check\_all\_chromosomes}
+    \subitem {Genetic}, \hyperpage{16}
+  \item {check\_valid\_string}
+    \subitem {Chromosome}, \hyperpage{8}
+  \item {Chromosome}, \hyperpage{7}
+    \subitem {check\_valid\_string}, \hyperpage{8}
+    \subitem {Chromosome}, \hyperpage{8}
+    \subitem {get\_string}, \hyperpage{9}
+    \subitem {L1}, \hyperpage{9}
+    \subitem {mutate}, \hyperpage{9}
+    \subitem {operator=}, \hyperpage{10}
+    \subitem {overwrite\_string}, \hyperpage{10}
+    \subitem {recombine}, \hyperpage{10}
+    \subitem {save}, \hyperpage{11}
+  \item {Cities}, \hyperpage{11}
+    \subitem {get\_city}, \hyperpage{12}
+    \subitem {get\_distance}, \hyperpage{12}
+    \subitem {Initialize\_Cities\_Circle}, \hyperpage{12}
+    \subitem {Initialize\_Cities\_Square}, \hyperpage{12}
+    \subitem {Initialize\_From\_File}, \hyperpage{13}
+    \subitem {save\_positions}, \hyperpage{13}
+  \item {City}, \hyperpage{13}
+    \subitem {City}, \hyperpage{14}
+
+  \indexspace
+
+  \item {Genetic}, \hyperpage{14}
+    \subitem {average\_L1}, \hyperpage{16}
+    \subitem {best\_L1}, \hyperpage{16}
+    \subitem {best\_L1\_index}, \hyperpage{16}
+    \subitem {calculate\_fitness\_first}, \hyperpage{16}
+    \subitem {check\_all\_chromosomes}, \hyperpage{16}
+    \subitem {Genetic}, \hyperpage{15}
+    \subitem {get\_chromosome}, \hyperpage{17}
+    \subitem {new\_generation}, \hyperpage{17}
+    \subitem {overwrite\_first\_chromosome}, \hyperpage{18}
+  \item {get\_chromosome}
+    \subitem {Genetic}, \hyperpage{17}
+  \item {get\_city}
+    \subitem {Cities}, \hyperpage{12}
+  \item {get\_distance}
+    \subitem {Cities}, \hyperpage{12}
+  \item {get\_string}
+    \subitem {Chromosome}, \hyperpage{9}
+
+  \indexspace
+
+  \item {include/chromosome.hpp}, \hyperpage{21}
+  \item {include/city.hpp}, \hyperpage{22}
+  \item {include/genetic.hpp}, \hyperpage{23}
+  \item {include/position.hpp}, \hyperpage{24}
+  \item {include/random.h}, \hyperpage{24, 25}
+  \item {Initialize\_Cities\_Circle}
+    \subitem {Cities}, \hyperpage{12}
+  \item {Initialize\_Cities\_Square}
+    \subitem {Cities}, \hyperpage{12}
+  \item {Initialize\_From\_File}
+    \subitem {Cities}, \hyperpage{13}
+
+  \indexspace
+
+  \item {L1}
+    \subitem {Chromosome}, \hyperpage{9}
+  \item {l1}
+    \subitem {Position}, \hyperpage{19}
+
+  \indexspace
+
+  \item {mutate}
+    \subitem {Chromosome}, \hyperpage{9}
+  \item {My Genetic Algorithm for Travelling Salesman Problem}, 
+		\hyperpage{1}
+
+  \indexspace
+
+  \item {new\_generation}
+    \subitem {Genetic}, \hyperpage{17}
+
+  \indexspace
+
+  \item {operator=}
+    \subitem {Chromosome}, \hyperpage{10}
+  \item {overwrite\_first\_chromosome}
+    \subitem {Genetic}, \hyperpage{18}
+  \item {overwrite\_string}
+    \subitem {Chromosome}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Position}, \hyperpage{18}
+    \subitem {l1}, \hyperpage{19}
+    \subitem {Position}, \hyperpage{18, 19}
+
+  \indexspace
+
+  \item {Random}, \hyperpage{19}
+  \item {recombine}
+    \subitem {Chromosome}, \hyperpage{10}
+
+  \indexspace
+
+  \item {save}
+    \subitem {Chromosome}, \hyperpage{11}
+  \item {save\_positions}
+    \subitem {Cities}, \hyperpage{13}
+  \item {source/chromosome.cpp}, \hyperpage{25}
+  \item {source/city.cpp}, \hyperpage{25}
+  \item {source/genetic.cpp}, \hyperpage{26}
+  \item {source/random.cpp}, \hyperpage{26}
+
+\end{theindex}

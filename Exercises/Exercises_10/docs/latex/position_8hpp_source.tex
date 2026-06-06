@@ -1,0 +1,28 @@
+\doxysection{position.\+hpp}
+\hypertarget{position_8hpp_source}{}\label{position_8hpp_source}\index{include/position.hpp@{include/position.hpp}}
+\doxymbox{\hyperlink{position_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_position_a369a577425f8ba02e8750d04b6a088db}{Position}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_x,\ m\_y;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{class_position_a369a577425f8ba02e8750d04b6a088db}{Position}}()\ :\ m\_x(0),\ m\_y(0)\ \{\};}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{class_position_a0035b8b376e447f5f8553dbe779a6693}{Position}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y)\ :\ m\_x(x),\ m\_y(y)\ \{\};}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{class_position_ae89a1c268c745eeb3f34a3e3f969fbf5}{Position}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_position_a369a577425f8ba02e8750d04b6a088db}{Position}}\ \&pos)\ :\ m\_x(pos.m\_x),\ m\_y(pos.m\_y)\ \{\};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_position_afa20a874cd06a41067429ed9b5b5de7c}{l1}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_position_a369a577425f8ba02e8750d04b6a088db}{Position}}\ \&pos1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_position_a369a577425f8ba02e8750d04b6a088db}{Position}}\ \&pos2)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(std::pow(pos2.m\_x\ -\/\ pos1.m\_x,\ 2)\ +\ std::pow(pos2.m\_y\ -\/\ pos1.m\_y,\ 2));}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\doxymbox{\hyperlink{class_position_a2430106c704a597cd25d829e3223a321}{get\_x}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_x;\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\doxymbox{\hyperlink{class_position_a4b9018e3eb79c8f6d2361d54591d749c}{get\_y}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_y;\ \}}
+\DoxyCodeLine{00047\ \};}
+
+\end{DoxyCode}

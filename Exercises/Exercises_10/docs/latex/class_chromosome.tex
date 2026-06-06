@@ -1,0 +1,277 @@
+\doxysection{Chromosome Class Reference}
+\hypertarget{class_chromosome}{}\label{class_chromosome}\index{Chromosome@{Chromosome}}
+
+
+Represents a chromosome in the genetic algorithm.  
+
+
+
+
+{\ttfamily \+\#include $<$chromosome.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_chromosome_a81007981ce6af5a5bbdf21afb457a7da}{Chromosome}} (std::\+vector$<$ unsigned int $>$ possible\+\_\+\+UIDs, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em Constructs a chromosome with a random route based on the provided possible UIDs. The constructor initializes the chromosome with a valid route that includes all the possible UIDs exactly once. The first element of the chromosome is set to the minimum UID to reduce symmetry of the problem. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_chromosome_a5a5fe054469ac1547f46d30026f0d33b}{Chromosome}} (std::\+vector$<$ unsigned int $>$ possible\+\_\+\+UIDs, std::\+vector$<$ unsigned int $>$ string)
+\begin{DoxyCompactList}\small\item\em Constructs a chromosome with a given route. The constructor checks if the provided route is valid (contains all possible UIDs exactly once and starts with the minimum UID). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_chromosome_a27fcdd6679fab50032ea2c7552e099c9}{Chromosome}} (const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&other)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \& \doxymbox{\hyperlink{class_chromosome_ad6d8ea9ece30047297d809c137d1baa1}{operator=}} (const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&other)
+\begin{DoxyCompactList}\small\item\em copy assignment operator \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_chromosome_aa2b6ac40b02dac07290fea1872869a8e}{mutate}} (const double \&p\+\_\+swap, const double \&p\+\_\+shift, const double \&p\+\_\+permute, const double \&p\+\_\+invert, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em mutates the chromosome by applying various mutation operators with given probabilities Mutation operators include swap, shift, permute, and invert, which are applied sequentially. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_chromosome_a783768ac998b43ec1f08bb0dfaef2429}{check\+\_\+valid\+\_\+string}} (std::\+vector$<$ unsigned int $>$ possible\+\_\+\+UIDs) const
+\begin{DoxyCompactList}\small\item\em checks if the chromosome is valid. A chromosome is valid if it contains all possible UIDs exactly once and starts with the minimum UID. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_chromosome_ac7f229deea9e79a4830e6cceeb51b282}{L1}} (const \doxymbox{\hyperlink{class_cities}{Cities}} \&map) const
+\begin{DoxyCompactList}\small\item\em calculates the total distance of the route represented by the chromosome. \end{DoxyCompactList}\item 
+std::\+vector$<$ unsigned int $>$ \doxymbox{\hyperlink{class_chromosome_a4f8985d84e87c49e51bd20d0415d34fb}{get\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em gets the route represented by the chromosome. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_chromosome_a0763f4674a19d3978b15800e9c14c1f7}{save}} (std::\+ofstream \&fout) const
+\begin{DoxyCompactList}\small\item\em saves the route represented by the chromosome to a file. The route is saved as a sequence of UIDs, one per line. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_chromosome_afc6ee65e9c17905b6caf1fb50c5bb2b3}{overwrite\+\_\+string}} (std::\+vector$<$ unsigned int $>$ new\+\_\+string)
+\begin{DoxyCompactList}\small\item\em sets the chromosome to a new given route \end{DoxyCompactList}\item 
+std::\+vector$<$ unsigned int $>$ \& \doxymbox{\hyperlink{class_chromosome_a441ef14d218fb1861c7c3e5e202bae7d}{get\+\_\+string}} ()
+\begin{DoxyCompactList}\small\item\em gets the route of the chromosome \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_chromosome_a37764e09a9b39283585e4c89e2f6eabe}{recombine}} (const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&parent1, const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&parent2, \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&offspring1, \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&offspring2, double prob, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em recombines two parent chromosomes to produce two offspring chromosomes with a given crossover probability. The crossover is applied with probability \textquotesingle{}prob\textquotesingle{}, otherwise the offspring are copies of the parents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a chromosome in the genetic algorithm. 
+
+The chromosome is represented as a vector of unsigned integers, where each integer corresponds to the UID of a city.
+
+The order of the integers in the vector represents the order in which the cities are visited in the TSP route.
+
+The class provides a method to calculate the total length of the route represented by the chromosome.
+
+The class provides methods for mutating the chromosome (swap, shift, permute, invert) and for recombining two chromosomes to produce offspring with a crossover.
+
+The class also provides a method to check if the chromosome is valid. 
+
+\label{doc-constructors}
+\Hypertarget{class_chromosome_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chromosome_a81007981ce6af5a5bbdf21afb457a7da}\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{Chromosome()}{Chromosome()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_chromosome_a81007981ce6af5a5bbdf21afb457a7da} 
+Chromosome::\+\+Chromosome (\begin{DoxyParamCaption}\item[{std::\+vector$<$ unsigned int $>$}]{possible\+\_\+\+UIDs}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a chromosome with a random route based on the provided possible UIDs. The constructor initializes the chromosome with a valid route that includes all the possible UIDs exactly once. The first element of the chromosome is set to the minimum UID to reduce symmetry of the problem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em possible\+\_\+\+UIDs} & a vector of possible UIDs to include in the chromosome \\
+\hline
+{\em rnd} & a random number generator \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chromosome_a5a5fe054469ac1547f46d30026f0d33b}\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{Chromosome()}{Chromosome()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_chromosome_a5a5fe054469ac1547f46d30026f0d33b} 
+Chromosome::\+\+Chromosome (\begin{DoxyParamCaption}\item[{std::\+vector$<$ unsigned int $>$}]{possible\+\_\+\+UIDs}{, }\item[{std::\+vector$<$ unsigned int $>$}]{string}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a chromosome with a given route. The constructor checks if the provided route is valid (contains all possible UIDs exactly once and starts with the minimum UID). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em possible\+\_\+\+UIDs} & a vector of possible UIDs to include in the chromosome \\
+\hline
+{\em string} & a vector representing the route of cities to visit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chromosome_a27fcdd6679fab50032ea2c7552e099c9}\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\index{Chromosome@{Chromosome}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{Chromosome()}{Chromosome()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_chromosome_a27fcdd6679fab50032ea2c7552e099c9} 
+Chromosome::\+\+Chromosome (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & another chromosome to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_chromosome_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chromosome_a783768ac998b43ec1f08bb0dfaef2429}\index{Chromosome@{Chromosome}!check\_valid\_string@{check\_valid\_string}}
+\index{check\_valid\_string@{check\_valid\_string}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_string()}{check\_valid\_string()}}
+{\footnotesize\ttfamily \label{class_chromosome_a783768ac998b43ec1f08bb0dfaef2429} 
+bool Chromosome::\+check\+\_\+valid\+\_\+string (\begin{DoxyParamCaption}\item[{std::\+vector$<$ unsigned int $>$}]{possible\+\_\+\+UIDs}{}\end{DoxyParamCaption}) const}
+
+
+
+checks if the chromosome is valid. A chromosome is valid if it contains all possible UIDs exactly once and starts with the minimum UID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em possible\+\_\+\+UIDs} & a vector of possible UIDs to check against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the chromosome is valid, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_chromosome_a441ef14d218fb1861c7c3e5e202bae7d}\index{Chromosome@{Chromosome}!get\_string@{get\_string}}
+\index{get\_string@{get\_string}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{get\_string()}{get\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_chromosome_a441ef14d218fb1861c7c3e5e202bae7d} 
+std::\+vector$<$ unsigned int $>$ \& Chromosome::\+get\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+gets the route of the chromosome 
+
+\begin{DoxyReturn}{Returns}
+a vector representing the route of cities to visit 
+\end{DoxyReturn}
+\Hypertarget{class_chromosome_a4f8985d84e87c49e51bd20d0415d34fb}\index{Chromosome@{Chromosome}!get\_string@{get\_string}}
+\index{get\_string@{get\_string}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{get\_string()}{get\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_chromosome_a4f8985d84e87c49e51bd20d0415d34fb} 
+std::\+vector$<$ unsigned int $>$ Chromosome::\+get\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the route represented by the chromosome. 
+
+\begin{DoxyReturn}{Returns}
+a vector representing the route of cities to visit 
+\end{DoxyReturn}
+\Hypertarget{class_chromosome_ac7f229deea9e79a4830e6cceeb51b282}\index{Chromosome@{Chromosome}!L1@{L1}}
+\index{L1@{L1}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{L1()}{L1()}}
+{\footnotesize\ttfamily \label{class_chromosome_ac7f229deea9e79a4830e6cceeb51b282} 
+double Chromosome::\+\+L1 (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_cities}{Cities}} \&}]{map}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+calculates the total distance of the route represented by the chromosome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & the map containing the city coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the total length of the route, using the l1 distance. 
+\end{DoxyReturn}
+\Hypertarget{class_chromosome_aa2b6ac40b02dac07290fea1872869a8e}\index{Chromosome@{Chromosome}!mutate@{mutate}}
+\index{mutate@{mutate}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
+{\footnotesize\ttfamily \label{class_chromosome_aa2b6ac40b02dac07290fea1872869a8e} 
+void Chromosome::\+mutate (\begin{DoxyParamCaption}\item[{const double \&}]{p\+\_\+swap}{, }\item[{const double \&}]{p\+\_\+shift}{, }\item[{const double \&}]{p\+\_\+permute}{, }\item[{const double \&}]{p\+\_\+invert}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})}
+
+
+
+mutates the chromosome by applying various mutation operators with given probabilities Mutation operators include swap, shift, permute, and invert, which are applied sequentially. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+swap} & probability of performing a swap mutation \\
+\hline
+{\em p\+\_\+shift} & probability of performing a shift mutation \\
+\hline
+{\em p\+\_\+permute} & probability of performing a permute mutation \\
+\hline
+{\em p\+\_\+invert} & probability of performing an invert mutation \\
+\hline
+{\em rnd} & random number generator \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chromosome_ad6d8ea9ece30047297d809c137d1baa1}\index{Chromosome@{Chromosome}!operator=@{operator=}}
+\index{operator=@{operator=}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_chromosome_ad6d8ea9ece30047297d809c137d1baa1} 
+\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \& Chromosome::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & another chromosome to assign from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference to the assigned chromosome 
+\end{DoxyReturn}
+\Hypertarget{class_chromosome_afc6ee65e9c17905b6caf1fb50c5bb2b3}\index{Chromosome@{Chromosome}!overwrite\_string@{overwrite\_string}}
+\index{overwrite\_string@{overwrite\_string}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{overwrite\_string()}{overwrite\_string()}}
+{\footnotesize\ttfamily \label{class_chromosome_afc6ee65e9c17905b6caf1fb50c5bb2b3} 
+void Chromosome::\+overwrite\+\_\+string (\begin{DoxyParamCaption}\item[{std::\+vector$<$ unsigned int $>$}]{new\+\_\+string}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the chromosome to a new given route 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+string} & a vector representing the route of cities to visit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chromosome_a37764e09a9b39283585e4c89e2f6eabe}\index{Chromosome@{Chromosome}!recombine@{recombine}}
+\index{recombine@{recombine}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{recombine()}{recombine()}}
+{\footnotesize\ttfamily \label{class_chromosome_a37764e09a9b39283585e4c89e2f6eabe} 
+void Chromosome::\+recombine (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{parent1}{, }\item[{const \doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{parent2}{, }\item[{\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{offspring1}{, }\item[{\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \&}]{offspring2}{, }\item[{double}]{prob}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+recombines two parent chromosomes to produce two offspring chromosomes with a given crossover probability. The crossover is applied with probability \textquotesingle{}prob\textquotesingle{}, otherwise the offspring are copies of the parents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent1} & the first parent chromosome \\
+\hline
+{\em parent2} & the second parent chromosome \\
+\hline
+{\em offspring1} & the first offspring chromosome \\
+\hline
+{\em offspring2} & the second offspring chromosome \\
+\hline
+{\em prob} & the probability of performing the crossover \\
+\hline
+{\em rnd} & random number generator \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chromosome_a0763f4674a19d3978b15800e9c14c1f7}\index{Chromosome@{Chromosome}!save@{save}}
+\index{save@{save}!Chromosome@{Chromosome}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{class_chromosome_a0763f4674a19d3978b15800e9c14c1f7} 
+void Chromosome::\+save (\begin{DoxyParamCaption}\item[{std::\+ofstream \&}]{fout}{}\end{DoxyParamCaption}) const}
+
+
+
+saves the route represented by the chromosome to a file. The route is saved as a sequence of UIDs, one per line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fout} & an output file stream to write the route to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{chromosome_8hpp}{chromosome.\+hpp}}\item 
+source/\+\doxymbox{\hyperlink{chromosome_8cpp}{chromosome.\+cpp}}\end{DoxyCompactItemize}

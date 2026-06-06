@@ -1,0 +1,61 @@
+\doxysection{City Class Reference}
+\hypertarget{class_city}{}\label{class_city}\index{City@{City}}
+
+
+represents a unique city.  
+
+
+
+
+{\ttfamily \+\#include $<$city.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_city_a1b2f2cda44178085f0c2b5beb5dba1a1}{City}} (const \doxymbox{\hyperlink{class_position}{Position}} \&pos)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\Hypertarget{class_city_a5ef0f22ba4368b617cf56aeecaf237c4}\label{class_city_a5ef0f22ba4368b617cf56aeecaf237c4} 
+unsigned int {\bfseries get\+\_\+\+UID} () const
+\begin{DoxyCompactList}\small\item\em gets the unique identifier of the city \end{DoxyCompactList}\item 
+\Hypertarget{class_city_a46b6ebd34ca44b208e974bb93fb1d924}\label{class_city_a46b6ebd34ca44b208e974bb93fb1d924} 
+\doxymbox{\hyperlink{class_position}{Position}} {\bfseries get\+\_\+pos} () const
+\begin{DoxyCompactList}\small\item\em gets the position of the city \end{DoxyCompactList}\item 
+\Hypertarget{class_city_a533b6278a29bdf0d5a3d2e94205d4c02}\label{class_city_a533b6278a29bdf0d5a3d2e94205d4c02} 
+double {\bfseries get\+\_\+x} () const
+\begin{DoxyCompactList}\small\item\em gets the x coordinate of the city \end{DoxyCompactList}\item 
+\Hypertarget{class_city_ad609f8b06988452c8b51c036ff421f4e}\label{class_city_ad609f8b06988452c8b51c036ff421f4e} 
+double {\bfseries get\+\_\+y} () const
+\begin{DoxyCompactList}\small\item\em gets the y coordinate of the city \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+represents a unique city. 
+
+The \doxylink{class_city}{City} class contains the \doxylink{class_position}{Position} of the ciy and a unique identifier (UID).
+
+The UID is generated automatically by the class, and is used to identify the city. Two cities will always have different UIDs, even if they have the same position. 
+
+\label{doc-constructors}
+\Hypertarget{class_city_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_city_a1b2f2cda44178085f0c2b5beb5dba1a1}\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily \label{class_city_a1b2f2cda44178085f0c2b5beb5dba1a1} 
+City::\+\+City (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_position}{Position}} \&}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position of the city \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{city_8hpp}{city.\+hpp}}\item 
+source/\+\doxymbox{\hyperlink{city_8cpp}{city.\+cpp}}\end{DoxyCompactItemize}

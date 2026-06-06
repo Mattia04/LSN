@@ -1,0 +1,104 @@
+\doxysection{Position Class Reference}
+\hypertarget{class_position}{}\label{class_position}\index{Position@{Position}}
+
+
+represents a position in a 2D space.  
+
+
+
+
+{\ttfamily \+\#include $<$position.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_position_a369a577425f8ba02e8750d04b6a088db}\label{class_position_a369a577425f8ba02e8750d04b6a088db} 
+{\bfseries Position} ()
+\begin{DoxyCompactList}\small\item\em default constructor, initializes the position to (0, 0). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_position_a0035b8b376e447f5f8553dbe779a6693}{Position}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em constructor that initializes the position to the given x and y coordinates. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_position_ae89a1c268c745eeb3f34a3e3f969fbf5}{Position}} (const \doxymbox{\hyperlink{class_position}{Position}} \&pos)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\Hypertarget{class_position_a2430106c704a597cd25d829e3223a321}\label{class_position_a2430106c704a597cd25d829e3223a321} 
+const double \& {\bfseries get\+\_\+x} () const
+\begin{DoxyCompactList}\small\item\em gets the x coordinate of the position. \end{DoxyCompactList}\item 
+\Hypertarget{class_position_a4b9018e3eb79c8f6d2361d54591d749c}\label{class_position_a4b9018e3eb79c8f6d2361d54591d749c} 
+const double \& {\bfseries get\+\_\+y} () const
+\begin{DoxyCompactList}\small\item\em gets the y coordinate of the position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \doxymbox{\hyperlink{class_position_afa20a874cd06a41067429ed9b5b5de7c}{l1}} (const \doxymbox{\hyperlink{class_position}{Position}} \&pos1, const \doxymbox{\hyperlink{class_position}{Position}} \&pos2)
+\begin{DoxyCompactList}\small\item\em calculates the l1 distance between two positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+represents a position in a 2D space. 
+
+The \doxylink{class_position}{Position} class has two member variables, m\+\_\+x and m\+\_\+y, which represent the x and y coordinates of the position. 
+
+\label{doc-constructors}
+\Hypertarget{class_position_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_position_a0035b8b376e447f5f8553dbe779a6693}\index{Position@{Position}!Position@{Position}}
+\index{Position@{Position}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_position_a0035b8b376e447f5f8553dbe779a6693} 
+Position::\+\+Position (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor that initializes the position to the given x and y coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate. \\
+\hline
+{\em y} & The y coordinate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_position_ae89a1c268c745eeb3f34a3e3f969fbf5}\index{Position@{Position}!Position@{Position}}
+\index{Position@{Position}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_position_ae89a1c268c745eeb3f34a3e3f969fbf5} 
+Position::\+\+Position (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_position}{Position}} \&}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Another instance of \doxylink{class_position}{Position}. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_position_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_position_afa20a874cd06a41067429ed9b5b5de7c}\index{Position@{Position}!l1@{l1}}
+\index{l1@{l1}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{l1()}{l1()}}
+{\footnotesize\ttfamily \label{class_position_afa20a874cd06a41067429ed9b5b5de7c} 
+double Position::\+l1 (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_position}{Position}} \&}]{pos1}{, }\item[{const \doxymbox{\hyperlink{class_position}{Position}} \&}]{pos2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+
+
+calculates the l1 distance between two positions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos1} & The first position. \\
+\hline
+{\em pos2} & The second position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The l1 distance between the two positions.
+\end{DoxyReturn}
+The l1 distance is calculated as:\+ \[L_1 = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \] 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{position_8hpp}{position.\+hpp}}\end{DoxyCompactItemize}

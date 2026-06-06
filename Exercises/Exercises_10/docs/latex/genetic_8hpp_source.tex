@@ -1,0 +1,52 @@
+\doxysection{genetic.\+hpp}
+\hypertarget{genetic_8hpp_source}{}\label{genetic_8hpp_source}\index{include/genetic.hpp@{include/genetic.hpp}}
+\doxymbox{\hyperlink{genetic_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{chromosome_8hpp}{chromosome.hpp}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_genetic_ab9d3a2d855436160a075a8fcb6717c20}{Genetic}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_population;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<Chromosome>\ m\_chromosomes;}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<Chromosome>\ m\_dummy\_chromosomes;}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<double>\ m\_fitness;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<double>\ m\_dummy\_fitness;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_p\_m\_swap\ =\ 0.05;\ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_p\_m\_shift\ =\ 0.1;\ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_p\_m\_permute\ =\ 0.1;\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_p\_m\_invert\ =\ 0.05;\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_p\_crossover\ =\ 0.6;\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ calculate\_fitness(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ sort\_chromosomes();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \doxymbox{\hyperlink{class_genetic_ab9d3a2d855436160a075a8fcb6717c20}{Genetic}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&population,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00071\ \ \ \ \ \doxymbox{\hyperlink{class_genetic_ab9d3a2d855436160a075a8fcb6717c20}{Genetic}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&population,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob\_swap,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob\_shift,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob\_permute,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob\_invert,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob\_crossover,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_genetic_ad8656842c1ce30ee035502c5ec901422}{new\_generation}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&exponent,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_genetic_accde3a40ca59004fbd636dd117090a17}{check\_all\_chromosomes}}(\textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&possible\_UIDs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_genetic_ad329b4d7ab74b82d0c5414866953d7b3}{calculate\_fitness\_first}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_genetic_ad8229202e0a34cd305735cbc0f10653f}{average\_L1}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_genetic_aca5c98e079b1e8063e82fcac6e3e4d0c}{best\_L1\_index}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_genetic_a1c7620cb677106d9de972514347bb52e}{best\_L1}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \doxymbox{\hyperlink{class_chromosome}{Chromosome}}\ \&\doxymbox{\hyperlink{class_genetic_a1e24f95f2b0d42df9adeed3136602221}{get\_chromosome}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&idx)\ \{\ \textcolor{keywordflow}{return}\ m\_chromosomes[idx];\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_genetic_a5425b010c42d8075a0bafbcc50fc7f48}{save\_chromosome}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&idx,\ std::ofstream\ \&fout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_genetic_a062708d22aa4baf3921406dba16cf2ac}{overwrite\_first\_chromosome}}(\textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \&other\_string);}
+\DoxyCodeLine{00126\ \};}
+
+\end{DoxyCode}

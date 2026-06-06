@@ -1,0 +1,247 @@
+\doxysection{Genetic Class Reference}
+\hypertarget{class_genetic}{}\label{class_genetic}\index{Genetic@{Genetic}}
+
+
+represents a genetic algorithm for solving the traveling salesman problem.  
+
+
+
+
+{\ttfamily \+\#include $<$genetic.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_genetic_ab9d3a2d855436160a075a8fcb6717c20}{Genetic}} (const unsigned int \&population, const \doxymbox{\hyperlink{class_cities}{Cities}} \&map, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em constructor for the \doxylink{class_genetic}{Genetic} class. The probabilities for mutations and crossover are set to default values. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_genetic_a0ce3147e937f191bb5d0746183c51888}{Genetic}} (const unsigned int \&population, const \doxymbox{\hyperlink{class_cities}{Cities}} \&map, const double \&prob\+\_\+swap, const double \&prob\+\_\+shift, const double \&prob\+\_\+permute, const double \&prob\+\_\+invert, const double \&prob\+\_\+crossover, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em constructor for the \doxylink{class_genetic}{Genetic} class. The probabilities for mutations and crossover are set to the provided values. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_genetic_ad8656842c1ce30ee035502c5ec901422}{new\+\_\+generation}} (const \doxymbox{\hyperlink{class_cities}{Cities}} \&map, const double \&exponent, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em creates a new generation of chromosomes. The new generation is found by:\+ \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_genetic_accde3a40ca59004fbd636dd117090a17}{check\+\_\+all\+\_\+chromosomes}} (const std::\+vector$<$ unsigned int $>$ \&possible\+\_\+\+UIDs) const
+\begin{DoxyCompactList}\small\item\em checks if all chromosomes in the population are valid. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_genetic_ad329b4d7ab74b82d0c5414866953d7b3}{calculate\+\_\+fitness\+\_\+first}} (const \doxymbox{\hyperlink{class_cities}{Cities}} \&map)
+\begin{DoxyCompactList}\small\item\em computes the fitness of the first chromosome in the population. Also inserts the fitness value in the correct position in the sorted fitness vector. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_genetic_ad8229202e0a34cd305735cbc0f10653f}{average\+\_\+\+L1}} () const
+\begin{DoxyCompactList}\small\item\em gets the average L1 distance of the best half of the population. \end{DoxyCompactList}\item 
+unsigned int \doxymbox{\hyperlink{class_genetic_aca5c98e079b1e8063e82fcac6e3e4d0c}{best\+\_\+\+L1\+\_\+index}} () const
+\begin{DoxyCompactList}\small\item\em gets the index of the chromosome with the best (lowest) L1 distance in the population. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_genetic_a1c7620cb677106d9de972514347bb52e}{best\+\_\+\+L1}} () const
+\begin{DoxyCompactList}\small\item\em gets the best (lowest) L1 distance in the population. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \& \doxymbox{\hyperlink{class_genetic_a1e24f95f2b0d42df9adeed3136602221}{get\+\_\+chromosome}} (const unsigned int \&idx)
+\begin{DoxyCompactList}\small\item\em gets a specific chromosome from the population by its index. \end{DoxyCompactList}\item 
+\Hypertarget{class_genetic_a5425b010c42d8075a0bafbcc50fc7f48}\label{class_genetic_a5425b010c42d8075a0bafbcc50fc7f48} 
+void {\bfseries save\+\_\+chromosome} (const unsigned int \&idx, std::\+ofstream \&fout) const
+\begin{DoxyCompactList}\small\item\em saves a specific chromosome from the population to a file. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_genetic_a062708d22aa4baf3921406dba16cf2ac}{overwrite\+\_\+first\+\_\+chromosome}} (const std::\+vector$<$ unsigned int $>$ \&other\+\_\+string)
+\begin{DoxyCompactList}\small\item\em overwrites the first chromosome with the new route \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+represents a genetic algorithm for solving the traveling salesman problem. 
+
+The class manages a population of chromosomes, where each chromosome represents a possible solution to the TSP. The class provides methods for evolving the population through selection, crossover, and mutation. The parameters for mutation and crossover probabilities can be set in the constructor, and are stored as member variables.
+
+The fitness of each chromosome is calculated based on the total length of the route it represents, using the L1 distance. The class also provides methods for retrieving the best solution and the average fitness of the best half of the population.
+
+The class is designed to work alongside the \doxylink{class_cities}{Cities} class, which provides the necessary information about the cities and their distances. 
+
+\label{doc-constructors}
+\Hypertarget{class_genetic_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_genetic_ab9d3a2d855436160a075a8fcb6717c20}\index{Genetic@{Genetic}!Genetic@{Genetic}}
+\index{Genetic@{Genetic}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{Genetic()}{Genetic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_genetic_ab9d3a2d855436160a075a8fcb6717c20} 
+Genetic::\+\+Genetic (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{population}{, }\item[{const \doxymbox{\hyperlink{class_cities}{Cities}} \&}]{map}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})}
+
+
+
+constructor for the \doxylink{class_genetic}{Genetic} class. The probabilities for mutations and crossover are set to default values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em population} & the number of chromosomes in the population. \\
+\hline
+{\em map} & the map containing the city coordinates and distances. \\
+\hline
+{\em rnd} & the random number generator. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_genetic_a0ce3147e937f191bb5d0746183c51888}\index{Genetic@{Genetic}!Genetic@{Genetic}}
+\index{Genetic@{Genetic}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{Genetic()}{Genetic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_genetic_a0ce3147e937f191bb5d0746183c51888} 
+Genetic::\+\+Genetic (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{population}{, }\item[{const \doxymbox{\hyperlink{class_cities}{Cities}} \&}]{map}{, }\item[{const double \&}]{prob\+\_\+swap}{, }\item[{const double \&}]{prob\+\_\+shift}{, }\item[{const double \&}]{prob\+\_\+permute}{, }\item[{const double \&}]{prob\+\_\+invert}{, }\item[{const double \&}]{prob\+\_\+crossover}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})}
+
+
+
+constructor for the \doxylink{class_genetic}{Genetic} class. The probabilities for mutations and crossover are set to the provided values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em population} & the number of chromosomes in the population. \\
+\hline
+{\em map} & the map containing the city coordinates and distances. \\
+\hline
+{\em prob\+\_\+swap} & the probability of performing a swap mutation. \\
+\hline
+{\em prob\+\_\+shift} & the probability of performing a shift mutation. \\
+\hline
+{\em prob\+\_\+permute} & the probability of performing a permute mutation. \\
+\hline
+{\em prob\+\_\+invert} & the probability of performing an invert mutation. \\
+\hline
+{\em prob\+\_\+crossover} & the probability of performing a crossover. \\
+\hline
+{\em rnd} & the random number generator. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_genetic_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_genetic_ad8229202e0a34cd305735cbc0f10653f}\index{Genetic@{Genetic}!average\_L1@{average\_L1}}
+\index{average\_L1@{average\_L1}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{average\_L1()}{average\_L1()}}
+{\footnotesize\ttfamily \label{class_genetic_ad8229202e0a34cd305735cbc0f10653f} 
+double Genetic::\+average\+\_\+\+L1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+gets the average L1 distance of the best half of the population. 
+
+\begin{DoxyReturn}{Returns}
+the average L1 distance of the best half of the population. 
+\end{DoxyReturn}
+\Hypertarget{class_genetic_a1c7620cb677106d9de972514347bb52e}\index{Genetic@{Genetic}!best\_L1@{best\_L1}}
+\index{best\_L1@{best\_L1}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{best\_L1()}{best\_L1()}}
+{\footnotesize\ttfamily \label{class_genetic_a1c7620cb677106d9de972514347bb52e} 
+double Genetic::\+best\+\_\+\+L1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+gets the best (lowest) L1 distance in the population. 
+
+\begin{DoxyReturn}{Returns}
+the best L1 distance in the population. 
+\end{DoxyReturn}
+\Hypertarget{class_genetic_aca5c98e079b1e8063e82fcac6e3e4d0c}\index{Genetic@{Genetic}!best\_L1\_index@{best\_L1\_index}}
+\index{best\_L1\_index@{best\_L1\_index}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{best\_L1\_index()}{best\_L1\_index()}}
+{\footnotesize\ttfamily \label{class_genetic_aca5c98e079b1e8063e82fcac6e3e4d0c} 
+unsigned int Genetic::\+best\+\_\+\+L1\+\_\+index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+gets the index of the chromosome with the best (lowest) L1 distance in the population. 
+
+\begin{DoxyReturn}{Returns}
+the index of the chromosome with the best L1 distance. 
+\end{DoxyReturn}
+\Hypertarget{class_genetic_ad329b4d7ab74b82d0c5414866953d7b3}\index{Genetic@{Genetic}!calculate\_fitness\_first@{calculate\_fitness\_first}}
+\index{calculate\_fitness\_first@{calculate\_fitness\_first}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{calculate\_fitness\_first()}{calculate\_fitness\_first()}}
+{\footnotesize\ttfamily \label{class_genetic_ad329b4d7ab74b82d0c5414866953d7b3} 
+void Genetic::\+calculate\+\_\+fitness\+\_\+first (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_cities}{Cities}} \&}]{map}{}\end{DoxyParamCaption})}
+
+
+
+computes the fitness of the first chromosome in the population. Also inserts the fitness value in the correct position in the sorted fitness vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & the map containing the city coordinates and distances \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_genetic_accde3a40ca59004fbd636dd117090a17}\index{Genetic@{Genetic}!check\_all\_chromosomes@{check\_all\_chromosomes}}
+\index{check\_all\_chromosomes@{check\_all\_chromosomes}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{check\_all\_chromosomes()}{check\_all\_chromosomes()}}
+{\footnotesize\ttfamily \label{class_genetic_accde3a40ca59004fbd636dd117090a17} 
+bool Genetic::\+check\+\_\+all\+\_\+chromosomes (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ unsigned int $>$ \&}]{possible\+\_\+\+UIDs}{}\end{DoxyParamCaption}) const}
+
+
+
+checks if all chromosomes in the population are valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em possible\+\_\+\+UIDs} & a vector containing the UIDs of all possible cities. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all chromosomes are valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_genetic_a1e24f95f2b0d42df9adeed3136602221}\index{Genetic@{Genetic}!get\_chromosome@{get\_chromosome}}
+\index{get\_chromosome@{get\_chromosome}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{get\_chromosome()}{get\_chromosome()}}
+{\footnotesize\ttfamily \label{class_genetic_a1e24f95f2b0d42df9adeed3136602221} 
+\doxymbox{\hyperlink{class_chromosome}{Chromosome}} \& Genetic::\+get\+\_\+chromosome (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets a specific chromosome from the population by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & the index of the chromosome to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference to the requested chromosome. 
+\end{DoxyReturn}
+\Hypertarget{class_genetic_ad8656842c1ce30ee035502c5ec901422}\index{Genetic@{Genetic}!new\_generation@{new\_generation}}
+\index{new\_generation@{new\_generation}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{new\_generation()}{new\_generation()}}
+{\footnotesize\ttfamily \label{class_genetic_ad8656842c1ce30ee035502c5ec901422} 
+void Genetic::\+new\+\_\+generation (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_cities}{Cities}} \&}]{map}{, }\item[{const double \&}]{exponent}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})}
+
+
+
+creates a new generation of chromosomes. The new generation is found by:\+ 
+
+
+\begin{DoxyEnumerate}
+\item Sorting the chromosomes based on their fitness (best fitness first).
+\item Selecting two random parents from the current population using the selection method discussed below.
+\item Recombining the selected parents to create two offspring using the crossover method.
+\item Mutating the offspring.
+\item Repeating from step 2 until the new population is the same size as the original.
+\item Replacing the old population with the new one.
+\item Recomputing the fitness of the new population.
+\end{DoxyEnumerate}
+
+The selection method is based on the fitness of the chromosomes. The individuals are selected using the formula:\+ \[j = \mathrm{population size} \cdot \mathrm{floor}(r ^ p)\] where $r$ is a random number in the range \+[0,1) and $p$ is an exponent that can be tuned to increase or decrease the selection pressure. Since the fitness is sorted from best to worst, a higher value of $p$ will increase the selection pressure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & the map containing the city coordinates and distances. \\
+\hline
+{\em exponent} & the exponent used in the selection method to tune selection pressure. \\
+\hline
+{\em rnd} & the random number generator. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_genetic_a062708d22aa4baf3921406dba16cf2ac}\index{Genetic@{Genetic}!overwrite\_first\_chromosome@{overwrite\_first\_chromosome}}
+\index{overwrite\_first\_chromosome@{overwrite\_first\_chromosome}!Genetic@{Genetic}}
+\doxysubsubsection{\texorpdfstring{overwrite\_first\_chromosome()}{overwrite\_first\_chromosome()}}
+{\footnotesize\ttfamily \label{class_genetic_a062708d22aa4baf3921406dba16cf2ac} 
+void Genetic::\+overwrite\+\_\+first\+\_\+chromosome (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ unsigned int $>$ \&}]{other\+\_\+string}{}\end{DoxyParamCaption})}
+
+
+
+overwrites the first chromosome with the new route 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+string} & a vector of the new route. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{genetic_8hpp}{genetic.\+hpp}}\item 
+source/\+\doxymbox{\hyperlink{genetic_8cpp}{genetic.\+cpp}}\end{DoxyCompactItemize}

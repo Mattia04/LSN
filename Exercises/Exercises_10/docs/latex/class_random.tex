@@ -1,0 +1,45 @@
+\doxysection{Random Class Reference}
+\hypertarget{class_random}{}\label{class_random}\index{Random@{Random}}
+
+
+A class for generating random numbers.  
+
+
+
+
+{\ttfamily \+\#include $<$random.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_random_aab872db48eb685a217bd0dc3d2c45c80}\label{class_random_aab872db48eb685a217bd0dc3d2c45c80} 
+void {\bfseries Set\+Random} (int \texorpdfstring{$\ast$}{*}, int, int)
+\begin{DoxyCompactList}\small\item\em Method to set the seed for the RNG. \end{DoxyCompactList}\item 
+\Hypertarget{class_random_ad7221f821a6f2533cbe175437af9a937}\label{class_random_ad7221f821a6f2533cbe175437af9a937} 
+void {\bfseries Save\+Seed} ()
+\begin{DoxyCompactList}\small\item\em Method to save the seed to a file. \end{DoxyCompactList}\item 
+\Hypertarget{class_random_a08472d20c925a3901f4c7d8489c963d1}\label{class_random_a08472d20c925a3901f4c7d8489c963d1} 
+double {\bfseries Rannyu} (void)
+\begin{DoxyCompactList}\small\item\em Method to generate a random number in the range \+[0,1). \end{DoxyCompactList}\item 
+\Hypertarget{class_random_ae31e5f509504c90926025e12f0306f57}\label{class_random_ae31e5f509504c90926025e12f0306f57} 
+double {\bfseries Rannyu} (double min, double max)
+\begin{DoxyCompactList}\small\item\em Method to generate a random number in the range \+[min,max). \end{DoxyCompactList}\item 
+\Hypertarget{class_random_ab5078463c55636b3d7d57034159f6c29}\label{class_random_ab5078463c55636b3d7d57034159f6c29} 
+double {\bfseries Gauss} (double mean, double sigma)
+\begin{DoxyCompactList}\small\item\em Method to generate a random number with a Gaussian distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for generating random numbers. 
+
+The \doxylink{class_random}{Random} class provides methods for generting random numbers using uniform and Gaussian distributions. It also includes methods for setting the seed and saving it to a file.
+
+\begin{DoxyAuthor}{Author}
+D.\+E. Galli 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{random_8h}{random.\+h}}\item 
+source/\+\doxymbox{\hyperlink{random_8cpp}{random.\+cpp}}\end{DoxyCompactItemize}

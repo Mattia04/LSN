@@ -1,0 +1,172 @@
+\doxysection{Cities Class Reference}
+\hypertarget{class_cities}{}\label{class_cities}\index{Cities@{Cities}}
+
+
+represents a collection of cities.  
+
+
+
+
+{\ttfamily \+\#include $<$city.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_cities_a999bb543b97af3674707c93b75d0c63e}\label{class_cities_a999bb543b97af3674707c93b75d0c63e} 
+const std::\+vector$<$ unsigned int $>$ \& {\bfseries get\+\_\+possible\+\_\+\+UIDs} () const
+\begin{DoxyCompactList}\small\item\em gets all the UIDs of the cities in the collection. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_city}{City}} \& \doxymbox{\hyperlink{class_cities_a9d1e38e950d006532c6744c1f5cdc5cb}{get\+\_\+city}} (unsigned int idx) const
+\begin{DoxyCompactList}\small\item\em gets a city by its index. \end{DoxyCompactList}\item 
+const double \& \doxymbox{\hyperlink{class_cities_a144a57e851d8364efde0d082f0a9357e}{get\+\_\+distance}} (const unsigned int \&uid1, const unsigned int \&uid2) const
+\begin{DoxyCompactList}\small\item\em gets the distance between two cities by their UIDs. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_cities_a2a8c8d6575b95121bc54b42b02c22afa}{save\+\_\+positions}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em saves the positions of the cities in a file. The file should contain two columns of float with x and y coordinates of the cities, nothing else. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_cities}{Cities}} \doxymbox{\hyperlink{class_cities_a382706e2935d6d89e74926d3d6892b5b}{Initialize\+\_\+\+Cities\+\_\+\+Circle}} (unsigned int N, double radius, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em Contructs a collection of cities with random positions on a circle. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_cities}{Cities}} \doxymbox{\hyperlink{class_cities_a0e9d61bec0631f96eec703f248f71958}{Initialize\+\_\+\+Cities\+\_\+\+Square}} (unsigned int N, double length, \doxymbox{\hyperlink{class_random}{Random}} \&rnd)
+\begin{DoxyCompactList}\small\item\em Contructs a collection of cities with random positions inside a square. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_cities}{Cities}} \doxymbox{\hyperlink{class_cities_aadd7a99e422179a6e477190540ffa9d0}{Initialize\+\_\+\+From\+\_\+\+File}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Construct a collection of cities from the positions contained inside a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+represents a collection of cities. 
+
+The \doxylink{class_cities}{Cities} class contains a vector of \doxylink{class_city}{City} objects, and a vector of possible UIDs (the UIDs of the cities in the collection).
+
+The \doxylink{class_cities}{Cities} class contains a map that associates each possible UID to the index of the city in the vector, to optimize data retrieval.
+
+The \doxylink{class_cities}{Cities} class also contains a distance matrix, which contains the precomputed distances between all cities for optimization purposes.
+
+The \doxylink{class_cities}{Cities} class is designed to be immutable. 
+
+\label{doc-func-members}
+\Hypertarget{class_cities_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cities_a9d1e38e950d006532c6744c1f5cdc5cb}\index{Cities@{Cities}!get\_city@{get\_city}}
+\index{get\_city@{get\_city}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{get\_city()}{get\_city()}}
+{\footnotesize\ttfamily \label{class_cities_a9d1e38e950d006532c6744c1f5cdc5cb} 
+const \doxymbox{\hyperlink{class_city}{City}} \& Cities::\+get\+\_\+city (\begin{DoxyParamCaption}\item[{unsigned int}]{idx}{}\end{DoxyParamCaption}) const}
+
+
+
+gets a city by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & the index of the city to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference to the requested city instance. 
+\end{DoxyReturn}
+\Hypertarget{class_cities_a144a57e851d8364efde0d082f0a9357e}\index{Cities@{Cities}!get\_distance@{get\_distance}}
+\index{get\_distance@{get\_distance}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{get\_distance()}{get\_distance()}}
+{\footnotesize\ttfamily \label{class_cities_a144a57e851d8364efde0d082f0a9357e} 
+const double \& Cities::\+get\+\_\+distance (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{uid1}{, }\item[{const unsigned int \&}]{uid2}{}\end{DoxyParamCaption}) const}
+
+
+
+gets the distance between two cities by their UIDs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid1} & the UID of the first city. \\
+\hline
+{\em uid2} & the UID of the second city. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance between the two cities. 
+\end{DoxyReturn}
+\Hypertarget{class_cities_a382706e2935d6d89e74926d3d6892b5b}\index{Cities@{Cities}!Initialize\_Cities\_Circle@{Initialize\_Cities\_Circle}}
+\index{Initialize\_Cities\_Circle@{Initialize\_Cities\_Circle}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Cities\_Circle()}{Initialize\_Cities\_Circle()}}
+{\footnotesize\ttfamily \label{class_cities_a382706e2935d6d89e74926d3d6892b5b} 
+\doxymbox{\hyperlink{class_cities}{Cities}} Cities::\+\+Initialize\+\_\+\+Cities\+\_\+\+Circle (\begin{DoxyParamCaption}\item[{unsigned int}]{N}{, }\item[{double}]{radius}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Contructs a collection of cities with random positions on a circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & the number of cities to generate. \\
+\hline
+{\em radius} & the radius of the circle on which the cities will be generated. \\
+\hline
+{\em rnd} & a random number generator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a \doxylink{class_cities}{Cities} instance. 
+\end{DoxyReturn}
+\Hypertarget{class_cities_a0e9d61bec0631f96eec703f248f71958}\index{Cities@{Cities}!Initialize\_Cities\_Square@{Initialize\_Cities\_Square}}
+\index{Initialize\_Cities\_Square@{Initialize\_Cities\_Square}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Cities\_Square()}{Initialize\_Cities\_Square()}}
+{\footnotesize\ttfamily \label{class_cities_a0e9d61bec0631f96eec703f248f71958} 
+\doxymbox{\hyperlink{class_cities}{Cities}} Cities::\+\+Initialize\+\_\+\+Cities\+\_\+\+Square (\begin{DoxyParamCaption}\item[{unsigned int}]{N}{, }\item[{double}]{length}{, }\item[{\doxymbox{\hyperlink{class_random}{Random}} \&}]{rnd}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Contructs a collection of cities with random positions inside a square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & the number of cities to generate. \\
+\hline
+{\em length} & the length of the sides of the square inside which the cities will be generated. \\
+\hline
+{\em rnd} & a random number generator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a \doxylink{class_cities}{Cities} instance. 
+\end{DoxyReturn}
+\Hypertarget{class_cities_aadd7a99e422179a6e477190540ffa9d0}\index{Cities@{Cities}!Initialize\_From\_File@{Initialize\_From\_File}}
+\index{Initialize\_From\_File@{Initialize\_From\_File}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{Initialize\_From\_File()}{Initialize\_From\_File()}}
+{\footnotesize\ttfamily \label{class_cities_aadd7a99e422179a6e477190540ffa9d0} 
+\doxymbox{\hyperlink{class_cities}{Cities}} Cities::\+\+Initialize\+\_\+\+From\+\_\+\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Construct a collection of cities from the positions contained inside a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where to load the positions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a \doxylink{class_cities}{Cities} instance. 
+\end{DoxyReturn}
+\Hypertarget{class_cities_a2a8c8d6575b95121bc54b42b02c22afa}\index{Cities@{Cities}!save\_positions@{save\_positions}}
+\index{save\_positions@{save\_positions}!Cities@{Cities}}
+\doxysubsubsection{\texorpdfstring{save\_positions()}{save\_positions()}}
+{\footnotesize\ttfamily \label{class_cities_a2a8c8d6575b95121bc54b42b02c22afa} 
+void Cities::\+save\+\_\+positions (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+saves the positions of the cities in a file. The file should contain two columns of float with x and y coordinates of the cities, nothing else. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where to save the positions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+this method assumes that file exists and the cities are in the correct format 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{city_8hpp}{city.\+hpp}}\item 
+source/\+\doxymbox{\hyperlink{city_8cpp}{city.\+cpp}}\end{DoxyCompactItemize}

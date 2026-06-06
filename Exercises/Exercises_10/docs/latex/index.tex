@@ -1,0 +1,72 @@
+\chapter{My Genetic Algorithm for Travelling Salesman Problem }
+\hypertarget{index}{}\label{index}\index{My Genetic Algorithm for Travelling Salesman Problem@{My Genetic Algorithm for Travelling Salesman Problem}}
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{My Genetic Algorithm for Travelling Salesman Problem}{My Genetic Algorithm for Travelling Salesman Problem}}\label{index_autotoc_md0}
+This project aims to solve the travelling salesman problem (TSP) using an implementation of a genetic algorithm (GA), the genetic algorithm is implemented with parallelization.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Algorithm Overview}{Algorithm Overview}}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Initialization}{Initialization}}\label{index_autotoc_md3}
+Creates a collection of \doxylink{class_cities}{Cities}, one can choose to create it from a file or generate a random configuration.
+
+Then for each rank of the program generate a population with \$\+N\$ individuals.\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Evolution Loop}{Evolution Loop}}\label{index_autotoc_md4}
+For each generation (and each rank):\+
+
+
+\begin{DoxyEnumerate}
+\item Orders the individual in the generation from best to worst.
+\item Until the generation has a full population:\+
+\begin{DoxyEnumerate}
+\item {\itshape Selection}:\+ chooses 2 random parents to generate 2 offsprings
+\item {\itshape Crossover}:\+ applies with a certain probability the crossover to the offsprings.
+\item {\itshape Mutations}:\+ applies 4 mutations (swap, shift, permute, invert) each with a certain probability.
+\item Saves the offsprings to the new generation, until the new population is full.
+\end{DoxyEnumerate}
+\item Saves the best path to a file and the best path length and average path length to another file.
+\end{DoxyEnumerate}
+
+Every \$\+M\$ generations a migration happens:\+ the best individual of each rank is sent to another random one.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Building}{Building}}\label{index_autotoc_md6}
+\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Compilation}{Compilation}}\label{index_autotoc_md7}
+Inside the root directory:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+Note:\+ the compilation requires {\ttfamily mpicxx} and {\ttfamily c++20}.\hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Executing}{Executing}}\label{index_autotoc_md8}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mpirun\ -\/n\ 7\ ./main.exe}
+
+\end{DoxyCode}
+
+
+You can modify the number of cores used at your liking.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{Minimal Working Example}{Minimal Working Example}}\label{index_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{genetic_8hpp}{genetic.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{random_8h}{random.h}}"{}}}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_random}{Random}}\ rnd;\ \textcolor{comment}{//\ setup\ the\ random\ number\ generator.}}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N\_CITIES\ =\ 34;}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N\_INDIVIDUALS\ =\ 100;}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N\_GENERATIONS\ =\ 500;}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ random\ map\ on\ the\ unit\ circle.}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ cities\_circle\ =\ \doxymbox{\hyperlink{class_cities_a382706e2935d6d89e74926d3d6892b5b}{Cities::Initialize\_Cities\_Circle}}(N\_CITIES,\ 1.,\ rnd);}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ random\ population\ of\ N\_INDIVIDUALS}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ population\ =\ \doxymbox{\hyperlink{class_genetic}{Genetic}}(N\_INDIVIDUALS,\ cities,\ rnd);}
+\DoxyCodeLine{\textcolor{comment}{//\ Compute\ the\ new\ generation\ N\_GENERATIONS\ times}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N\_GENERATIONS;\ ++i)}
+\DoxyCodeLine{population.new\_generation(cities,\ 2.,\ rnd);}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Author}{Author}}\label{index_autotoc_md12}
+Mattia Ballico 

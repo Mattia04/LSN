@@ -1,0 +1,57 @@
+\doxysection{chromosome.\+hpp}
+\hypertarget{chromosome_8hpp_source}{}\label{chromosome_8hpp_source}\index{include/chromosome.hpp@{include/chromosome.hpp}}
+\doxymbox{\hyperlink{chromosome_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{city_8hpp}{city.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }Chromosome}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<unsigned\ int>\ m\_string;\ \textcolor{comment}{//\ route\ of\ cities\ UIDs\ to\ visit}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_swap(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&idx1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&idx2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_swap\_all(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_swap\_init(\doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_shift(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_permute(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ mutate\_invert(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ Chromosome()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ Chromosome(std::vector<unsigned\ int>\ possible\_UIDs,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00084\ \ \ \ \ Chromosome(std::vector<unsigned\ int>\ possible\_UIDs,\ std::vector<unsigned\ int>\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00088\ \ \ \ \ \doxymbox{\hyperlink{class_chromosome_a27fcdd6679fab50032ea2c7552e099c9}{Chromosome}}(\textcolor{keyword}{const}\ Chromosome\ \&other)\ :\ m\_string(other.m\_string)\ \{\};}
+\DoxyCodeLine{00092\ \ \ \ \ Chromosome\ \&\doxymbox{\hyperlink{class_chromosome_ad6d8ea9ece30047297d809c137d1baa1}{operator=}}(\textcolor{keyword}{const}\ Chromosome\ \&other)}
+\DoxyCodeLine{00093\ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ m\_string\ =\ other.m\_string;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_chromosome_aa2b6ac40b02dac07290fea1872869a8e}{mutate}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&p\_swap,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&p\_shift,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&p\_permute,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&p\_invert,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_chromosome_a37764e09a9b39283585e4c89e2f6eabe}{recombine}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_chromosome}{Chromosome}}\ \&parent1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_chromosome}{Chromosome}}\ \&parent2,\ \doxymbox{\hyperlink{class_chromosome}{Chromosome}}\ \&offspring1,\ \doxymbox{\hyperlink{class_chromosome}{Chromosome}}\ \&offspring2,\ \textcolor{keywordtype}{double}\ prob,\ \doxymbox{\hyperlink{class_random}{Random}}\ \&rnd);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_chromosome_a783768ac998b43ec1f08bb0dfaef2429}{check\_valid\_string}}(std::vector<unsigned\ int>\ possible\_UIDs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_chromosome_ac7f229deea9e79a4830e6cceeb51b282}{L1}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_cities}{Cities}}\ \&map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00130\ \ \ \ \ std::vector<unsigned\ int>\ \doxymbox{\hyperlink{class_chromosome_a4f8985d84e87c49e51bd20d0415d34fb}{get\_string}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_string;\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_chromosome_a0763f4674a19d3978b15800e9c14c1f7}{save}}(std::ofstream\ \&fout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_chromosome_afc6ee65e9c17905b6caf1fb50c5bb2b3}{overwrite\_string}}(std::vector<unsigned\ int>\ new\_string)\ \{\ m\_string\ =\ new\_string;\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00143\ \ \ \ \ [[nodiscard]]\ std::vector<unsigned\ int>\ \&\doxymbox{\hyperlink{class_chromosome_a441ef14d218fb1861c7c3e5e202bae7d}{get\_string}}()\ \{\ \textcolor{keywordflow}{return}\ m\_string;\ \}}
+\DoxyCodeLine{00144\ \};}
+
+\end{DoxyCode}
