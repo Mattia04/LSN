@@ -23,7 +23,7 @@ Below is a brief overview of the topics addressed in each assignment:
 - Exercises 7: Molecular Dynamics and tail corrections.
 - Exercises 8: Variational Principle and Simulated Annealing.
 - Exercises 9: Travelling Salesman and Genetic Algorithm.
-- Exercises 10: Code Parallelization.
+- Exercises 10: Code Parallelization (docs [here](https://mattia04.github.io/LSN/index.html)).
 - Exercises 11: Neural Networks.
 - Exercises 12: Convolutional Neural Networks.
 
