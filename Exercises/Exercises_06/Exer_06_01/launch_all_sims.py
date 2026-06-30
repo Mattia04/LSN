@@ -20,17 +20,14 @@ OUTPUT_FILES = [Path("./OUTPUT/" + dir_) for dir_ in OUTPUT_FILES]
 RESULTS_DIR = Path("RESULTS")
 
 
-# =========================
-# FUNCTIONS
-# =========================
 def modify_input(template_path, input_path, temperature, restart, h, metro):
     """
-    Read template input file, modify parameters, write new input file.
+    Read a template input file, modify the parameters and write a new input file.
     """
     with open(template_path, "r") as f:
         content = f.read()
 
-    # Example replacements (adapt to your file format)
+    # Change input parameters in the template content
     content = (
         content.replace("__H__", str(h))
         .replace("__RESTART__", str(int(restart)))
@@ -52,7 +49,7 @@ def run_simulation():
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
-            check=True,  # raises error if simulation fails
+            check=True,  # raise error if simulation fails
             cwd="./SOURCE/",
         )
 
@@ -78,15 +75,12 @@ def save_output(temperature, field, metro):
         shutil.copy(out_file, RESULTS_DIR / new_name)
 
 
-# =========================
-# MAIN LOOP
-# =========================
 def main():
     # all temperatures to use
     temps = [i / 20 for i in range(10, 41)][::-1]
 
     for field in [0.0, 0.02]:  # magnetic field
-        for metro in [2, 3]:  # choose simulation type metropolis (2) or gibbs (3)
+        for metro in [2, 3]:  # simulation type metropolis (2) or gibbs (3)
             for i, temp in enumerate(temps):
                 print(
                     f"\n=== Running configuration T={temp:.2f} H={field:.2f} {'metro' if metro == 2 else 'gibbs'} ==="
