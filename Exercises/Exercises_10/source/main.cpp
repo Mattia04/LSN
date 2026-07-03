@@ -1,5 +1,9 @@
+#include <algorithm>
 #include <fstream>
+#include <iostream>
+#include <numeric>
 #include <string>
+#include <vector>
 
 #include "mpi.h"
 #include "genetic.hpp"
@@ -48,12 +52,46 @@ int main(int argc, char *argv[])
     // cout << "I am rank:" << rank << " and I loaded p1=" << p1 << " p2=" << p2 << endl;
 
     // ================================================================================
-    constexpr unsigned int GENERATIONS = 2000;
+    constexpr unsigned int GENERATIONS = 3000; // number of generations to evolve the population
     constexpr double delta = 5. / GENERATIONS; // to increase p of 5 points
+    constexpr unsigned int MIGRATIONS = 100;   // number of generations between migrations
+    constexpr unsigned int POPULATION = 1000;  // number of individuals in the population
 
-    constexpr unsigned int MIGRATIONS = 100; // number of generations before a migration
+    // Default values
+    double prob_swap = 0.0007;
+    double prob_shift = 0.03;
+    double prob_permute = 0.07;
+    double prob_invert = 0.05;
+    double prob_crossover = 0.70;
 
-    constexpr unsigned int POPULATION = 500;
+    if (rank == 0)
+    {
+        if (argc < 6)
+        {
+            cout << "Usage: mpirun -np <num_processes> ./main <prob_swap> <prob_shift> <prob_permute> <prob_invert> <prob_crossover>" << endl;
+            cout << "Using default values:" << endl;
+            cout << "prob_swap = " << prob_swap << endl;
+            cout << "prob_shift = " << prob_shift << endl;
+            cout << "prob_permute = " << prob_permute << endl;
+            cout << "prob_invert = " << prob_invert << endl;
+            cout << "prob_crossover = " << prob_crossover << endl;
+        }
+        else
+        {
+            prob_swap = stod(argv[1]);
+            prob_shift = stod(argv[2]);
+            prob_permute = stod(argv[3]);
+            prob_invert = stod(argv[4]);
+            prob_crossover = stod(argv[5]);
+
+            cout << "Using provided values:" << endl;
+            cout << "prob_swap = " << prob_swap << endl;
+            cout << "prob_shift = " << prob_shift << endl;
+            cout << "prob_permute = " << prob_permute << endl;
+            cout << "prob_invert = " << prob_invert << endl;
+            cout << "prob_crossover = " << prob_crossover << endl;
+        }
+    }
 
     string s_best = "data/best_string_rank" + to_string(rank) + ".dat";
     ofstream f_best(s_best);
@@ -64,7 +102,7 @@ int main(int argc, char *argv[])
 
     auto cities = Cities::Initialize_From_File("cap_prov_ita.dat");
 
-    auto population = Genetic(POPULATION, cities, 0.001, 0.10, 0.05, 0.08, 0.65, rnd);
+    auto population = Genetic(POPULATION, cities, prob_swap, prob_shift, prob_permute, prob_invert, prob_crossover, rnd);
 
     for (unsigned int i = 0; i < GENERATIONS; ++i)
     {
